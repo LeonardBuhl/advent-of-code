@@ -5,7 +5,7 @@ FILE_PATH = f"{Path(__file__).parent}/data.txt"
 
 class Solution:
 
-    def read_file_in(self) -> List[int]:
+    def read_file_in(self) -> List[List[int]]:
         data = []
 
         with open(FILE_PATH, 'r', encoding="UTF-8") as file:
@@ -24,16 +24,22 @@ class Solution:
         for array in data:
 
             direction = "unset"
-            print(array)
+            string = "unsafe"
 
             for id_number, number in enumerate(array):
 
                 if id_number == len(array) - 1: # avoid IndexError
                     number_safe_reports += 1 # if last number, it's safe
                     direction = "unset"
+                    string = "safe"
                     break
 
                 level_difference = array[id_number + 1] - number
+
+                # i still don´t know exactly why but the other checks dont catch 5 cases that this catches
+                a = abs(level_difference)
+                if a == 0 or a > 3:
+                    break
 
                 if direction == "unset":
                     if level_difference > 0:
@@ -41,13 +47,17 @@ class Solution:
                     elif level_difference < 0:
                         direction = "-"
 
+                # direction is increasing
                 if direction == "+":
+                    # decreasing again or increasing by more than three
                     if level_difference <= 0 or level_difference > 3:
                         break
 
                 if direction == "-":
                     if level_difference >= 0 or level_difference < -3:
                         break
+
+            print(f"{array} - {string}")
 
         return number_safe_reports
 

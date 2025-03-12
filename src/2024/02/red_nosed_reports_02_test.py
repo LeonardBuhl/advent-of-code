@@ -1,5 +1,5 @@
 import pytest
-from red_nosed_reports_01 import Solution
+from red_nosed_reports_02 import Solution
 
 data = [
     [7, 6, 4, 2, 1],
@@ -15,4 +15,4 @@ def solution():
     return Solution()
 
 def test_solution(solution: Solution):
-    assert solution.find_safe_reports(data) == 2
+    assert solution.find_safe_reports_with_dampener(data) == 4
