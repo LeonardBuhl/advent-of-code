@@ -5,6 +5,7 @@ FILE_PATH = f"{Path(__file__).parent}/data.txt"
 
 
 class Solution:
+
     def read_file_in(self) -> List[List[int]]:
         data = []
 
