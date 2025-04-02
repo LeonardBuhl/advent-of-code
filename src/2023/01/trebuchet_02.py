@@ -1,43 +1,59 @@
+import re
 from pathlib import Path
 from typing import List, Union
 
 FILE_PATH = f"{Path(__file__).parent}/data.txt"
 
+
 class Solution:
-
     def read_file_in(self) -> List[str]:
-
         dataset = []
 
-        with open(FILE_PATH, 'r', encoding="UTF-8") as file:
+        with open(FILE_PATH, "r", encoding="UTF-8") as file:
             for line in file:
                 dataset.append(line)
 
         return dataset
 
+    def prepare_string(self, line: str) -> str:
+        number_strings = {
+            "one": "1",
+            "two": "2",
+            "three": "3",
+            "four": "4",
+            "five": "5",
+            "six": "6",
+            "seven": "7",
+            "eight": "8",
+            "nine": "9",
+        }
 
-    def prepare_strings(self, dataset: List[str]) -> List[str]:
+        pattern = "|".join(re.escape(s) for s in number_strings)
 
-        for line in dataset:
-            line = line.replace('one', '1')
-            line = line.replace('two', '2')
-            line = line.replace('three', '3')
-            line = line.replace('four', '4')
-            line = line.replace('five', '5')
-            line = line.replace('six', '6')
-            line = line.replace('seven', '7')
-            line = line.replace('eight', '8')
-            line = line.replace('nine', '9')
+        def replace_match(match):
+            return number_strings[match.group(0)]
 
-            print(line)
-        return dataset
+        result = ""
+        i = 0
 
+        while i < len(line):
+            match = re.search(pattern, line[i:])
+            if match:
+                result += line[i : i + match.start()]
+                result += replace_match(match)
+                i += match.start() + 1
+            else:
+                result += line[i:]
+                break
 
-    def calculate_calibration_value(self, dataset: List[int]) -> int:
+        return result
 
+    def calculate_calibration_value(self, dataset: List[str]) -> int:
         calibration_sum = 0
 
         for line in dataset:
+            line = self.prepare_string(line)
+
             numbers_list = []
             calibration_value = 0
 
@@ -65,9 +81,8 @@ class Solution:
 def main():
     sol = Solution()
     dataset = sol.read_file_in()
-    dataset = sol.prepare_strings(dataset)
     print(sol.calculate_calibration_value(dataset))
+
 
 if __name__ == "__main__":
     main()
-
