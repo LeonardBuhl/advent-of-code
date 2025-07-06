@@ -32,6 +32,8 @@ class Solution:
             for inner_index, element in enumerate(inner_list):
                 if element in SYMBOLS:
                     part_numbers.extend(self.get_adjacent_numbers_from_coords(structured_data, outer_index, inner_index))
+
+        print(part_numbers)
         
         return sum(part_numbers)
 
@@ -55,23 +57,18 @@ class Solution:
                         
                         # go left
                         left = j - 1
-                        try:
-                            while (dataset[i][left]).isdigit():
+                        while left >= 0 and (dataset[i][left]).isdigit():
                                 entire_number.insert(0, dataset[i][left])
                                 found_locations.append((i, left))
                                 left -= 1
-                        except IndexError:
-                            pass
 
                         # go right
                         right = j + 1
-                        try:
-                            while (dataset[i][right]).isdigit():
-                                entire_number.append(dataset[i][right])
-                                found_locations.append((i, right))
-                                right += 1
-                        except IndexError:
-                            pass
+                        while right <= len(dataset[i]) and (dataset[i][right]).isdigit():
+                            entire_number.append(dataset[i][right])
+                            found_locations.append((i, right))
+                            right += 1
+
                         # entire number found, combine into integer
                         part_numbers.append(int(''.join(map(str, entire_number))))
                     
