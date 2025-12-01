@@ -3,7 +3,7 @@ from typing import List
 
 FILE_PATH = Path(__file__).with_name("data.txt")
 
-def read_file_in() -> tuple[list[int], list[int]]:
+def read_file_in() -> list[list[int]]:
     data = []
 
     with open(FILE_PATH, 'r', encoding="UTF-8") as file:
@@ -27,8 +27,13 @@ def find_safe_reports(data: List[List[int]]) -> int:
 
     for report in data:
 
-        if is_valid_ascending(report) or is_valid_descending(report):
-            number_safe_reports += 1
+        report_variations = [report[:i] + report[i+1:] for i in range(len(report))]
+
+        for report_variant in report_variations:
+
+            if is_valid_ascending(report_variant) or is_valid_descending(report_variant):
+                number_safe_reports += 1
+                break
 
 
     return number_safe_reports

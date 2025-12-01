@@ -1,7 +1,7 @@
 """ Tests for Red-Nosed Reports - Part 1 """
-import red_nosed_reports_01
+from red_nosed_reports_01 import find_safe_reports
 
-data = [
+DATA = [
     [7, 6, 4, 2, 1],
     [1, 2, 7, 8, 9],
     [9, 7, 6, 2, 1],
@@ -13,4 +13,4 @@ data = [
 
 def test_solution():
     """ Test the safe report finding with the sample data """
-    assert red_nosed_reports_01.find_safe_reports(data) == 2
+    assert find_safe_reports(DATA) == 2
