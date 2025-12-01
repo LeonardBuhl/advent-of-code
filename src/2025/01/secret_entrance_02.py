@@ -55,9 +55,9 @@ class Solution:
 
 
 def main():
-    sol = Solution()
-    data = sol.read_file_in()
-    print(sol.get_password(data))
+    solution = Solution()
+    data = solution.read_file_in()
+    print(solution.get_password(data))
 
 if __name__ == "__main__":
     main()

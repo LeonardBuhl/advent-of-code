@@ -15,12 +15,12 @@ dataset = [
 def solution():
     return Solution()
 
-def test_solution(sol: Solution):
-    assert sol.calculate_calibration_value([dataset[0]]) == 29
-    assert sol.calculate_calibration_value([dataset[1]]) == 83
-    assert sol.calculate_calibration_value([dataset[2]]) == 13
-    assert sol.calculate_calibration_value([dataset[3]]) == 24
-    assert sol.calculate_calibration_value([dataset[4]]) == 42
-    assert sol.calculate_calibration_value([dataset[5]]) == 14
-    assert sol.calculate_calibration_value([dataset[6]]) == 76
-    assert sol.calculate_calibration_value(dataset) == 281
+def test_solution(solution: Solution):
+    assert solution.calculate_calibration_value([dataset[0]]) == 29
+    assert solution.calculate_calibration_value([dataset[1]]) == 83
+    assert solution.calculate_calibration_value([dataset[2]]) == 13
+    assert solution.calculate_calibration_value([dataset[3]]) == 24
+    assert solution.calculate_calibration_value([dataset[4]]) == 42
+    assert solution.calculate_calibration_value([dataset[5]]) == 14
+    assert solution.calculate_calibration_value([dataset[6]]) == 76
+    assert solution.calculate_calibration_value(dataset) == 281

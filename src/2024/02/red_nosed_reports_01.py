@@ -63,9 +63,9 @@ class Solution:
 
 
 def main():
-    sol = Solution()
-    data = sol.read_file_in()
-    print(sol.find_safe_reports(data))
+    solution = Solution()
+    data = solution.read_file_in()
+    print(solution.find_safe_reports(data))
 
 if __name__ == "__main__":
     main()

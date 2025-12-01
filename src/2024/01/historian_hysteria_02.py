@@ -34,9 +34,9 @@ class Solution:
 
 
 def main():
-    sol = Solution()
-    left, right = sol.read_file_in()
-    print(sol.measure_similarity(left, right))
+    solution = Solution()
+    left, right = solution.read_file_in()
+    print(solution.measure_similarity(left, right))
 
 if __name__ == "__main__":
     main()

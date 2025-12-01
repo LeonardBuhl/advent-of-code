@@ -46,9 +46,9 @@ class Solution:
 
 
 def main():
-    sol = Solution()
-    dataset = sol.read_file_in()
-    print(sol.calculate_calibration_value(dataset))
+    solution = Solution()
+    dataset = solution.read_file_in()
+    print(solution.calculate_calibration_value(dataset))
 
 if __name__ == "__main__":
     main()

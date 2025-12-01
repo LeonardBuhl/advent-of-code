@@ -33,9 +33,9 @@ class Solution:
         return total_distance
 
 def main():
-    sol = Solution()
-    left_column, right_column = sol.read_file_in()
-    print(sol.total_distance(left_column, right_column))
+    solution = Solution()
+    left_column, right_column = solution.read_file_in()
+    print(solution.total_distance(left_column, right_column))
 
 if __name__ == "__main__":
     main()

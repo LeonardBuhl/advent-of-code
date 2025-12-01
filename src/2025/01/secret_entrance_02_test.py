@@ -27,6 +27,6 @@ def prepare_data():
         formatted_data.append(int(single_line_int))
     return formatted_data
 
-def test_solution(sol: Solution):
+def test_solution(solution: Solution):
     formatted_data = prepare_data()
-    assert sol.get_password(formatted_data) == 6
+    assert solution.get_password(formatted_data) == 6

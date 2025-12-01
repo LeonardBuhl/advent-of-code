@@ -9,5 +9,5 @@ right_column = [4, 3, 5, 3, 9, 3]
 def solution():
     return Solution()
 
-def test_solution(sol: Solution):
-    assert sol.measure_distance(left_column, right_column) == 11
+def test_solution(solution: Solution):
+    assert solution.measure_distance(left_column, right_column) == 11

@@ -14,5 +14,5 @@ data = [
 def solution():
     return Solution()
 
-def test_solution(sol: Solution):
-    assert sol.find_safe_reports_with_dampener(data) == 4
+def test_solution(solution: Solution):
+    assert solution.find_safe_reports_with_dampener(data) == 4

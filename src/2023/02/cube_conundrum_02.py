@@ -59,10 +59,10 @@ class Solution:
 
 
 def main():
-    sol = Solution()
-    raw_data = sol.read_file_in()
-    structured_data = sol.prepare_data(raw_data)
-    print(f"{sol.find_possible_games(structured_data)=}")
+    solution = Solution()
+    raw_data = solution.read_file_in()
+    structured_data = solution.prepare_data(raw_data)
+    print(f"{solution.find_possible_games(structured_data)=}")
 
 
 if __name__ == "__main__":
