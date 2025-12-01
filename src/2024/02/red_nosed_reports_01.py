@@ -17,7 +17,7 @@ class Solution:
         return data
 
 
-    def find_safe_reports(self, data: List[int]) -> int:
+    def find_safe_reports(self, data: List[List[int]]) -> int:
 
         number_safe_reports = 0
 

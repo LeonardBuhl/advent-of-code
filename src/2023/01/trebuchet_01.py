@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Union
+from typing import List
 
 FILE_PATH = f"{Path(__file__).parent}/data.txt"
 
@@ -16,7 +16,7 @@ class Solution:
         return dataset
 
 
-    def calculate_calibration_value(self, dataset: List[int]) -> int:
+    def calculate_calibration_value(self, dataset: List[str]) -> int:
 
         calibration_sum = 0
 

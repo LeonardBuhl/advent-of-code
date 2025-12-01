@@ -1,4 +1,5 @@
 from typing import List
+from pathlib import Path
 
 FILE_PATH = f"{Path(__file__).parent}/data.txt"
 

@@ -15,10 +15,10 @@ def solution():
     return Solution()
 
 
-def test_solution(solution: Solution):
-    assert solution.find_possible_games(solution.prepare_data([dataset[0]])) == 1
-    assert solution.find_possible_games(solution.prepare_data([dataset[1]])) == 2
-    assert solution.find_possible_games(solution.prepare_data([dataset[2]])) == 0
-    assert solution.find_possible_games(solution.prepare_data([dataset[3]])) == 0
-    assert solution.find_possible_games(solution.prepare_data([dataset[4]])) == 5
-    assert solution.find_possible_games(solution.prepare_data(dataset)) == 8
+def test_solution(sol: Solution):
+    assert sol.find_possible_games(sol.prepare_data([dataset[0]])) == 1
+    assert sol.find_possible_games(sol.prepare_data([dataset[1]])) == 2
+    assert sol.find_possible_games(sol.prepare_data([dataset[2]])) == 0
+    assert sol.find_possible_games(sol.prepare_data([dataset[3]])) == 0
+    assert sol.find_possible_games(sol.prepare_data([dataset[4]])) == 5
+    assert sol.find_possible_games(sol.prepare_data(dataset)) == 8
