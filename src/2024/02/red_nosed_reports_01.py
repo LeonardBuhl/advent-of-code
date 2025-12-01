@@ -1,71 +1,42 @@
 from pathlib import Path
 from typing import List
 
-FILE_PATH = f"{Path(__file__).parent}/data.txt"
+FILE_PATH = Path(__file__).with_name("data.txt")
 
-class Solution:
+def read_file_in() -> List[List[int]]:
+    data = []
 
-    def read_file_in(self) -> List[List[int]]:
-        data = []
+    with open(FILE_PATH, 'r', encoding="UTF-8") as file:
+        for line in file:
+            single_line_string = line.split()
+            single_line_int = [int(number) for number in single_line_string]
+            data.append(single_line_int)
 
-        with open(FILE_PATH, 'r', encoding="UTF-8") as file:
-            for line in file:
-                single_line_string = line.split()
-                single_line_int = [int(number) for number in single_line_string]
-                data.append(single_line_int)
+    return data
 
-        return data
+def is_valid_ascending(numbers: List[int]) -> bool:
+    return all(0 < b - a <= 3 for a, b in zip(numbers, numbers[1:]))
+
+def is_valid_descending(numbers: List[int]) -> bool:
+    return all(0 < a - b <= 3 for a, b in zip(numbers, numbers[1:]))
 
 
-    def find_safe_reports(self, data: List[List[int]]) -> int:
+def find_safe_reports(data: List[List[int]]) -> int:
 
-        number_safe_reports = 0
+    number_safe_reports = 0
 
-        for array in data:
+    for report in data:
 
-            direction = "unset"
-            string = "unsafe"
+        if is_valid_ascending(report) or is_valid_descending(report):
+            number_safe_reports += 1
 
-            for id_number, number in enumerate(array):
 
-                if id_number == len(array) - 1: # avoid IndexError
-                    number_safe_reports += 1 # if last number, it's safe
-                    direction = "unset"
-                    string = "safe"
-                    break
-
-                level_difference = array[id_number + 1] - number
-
-                # i still don´t know exactly why but the other checks dont catch 5 cases that this catches
-                a = abs(level_difference)
-                if a == 0 or a > 3:
-                    break
-
-                if direction == "unset":
-                    if level_difference > 0:
-                        direction = "+"
-                    elif level_difference < 0:
-                        direction = "-"
-
-                # direction is increasing
-                if direction == "+":
-                    # decreasing again or increasing by more than three
-                    if level_difference <= 0 or level_difference > 3:
-                        break
-
-                if direction == "-":
-                    if level_difference >= 0 or level_difference < -3:
-                        break
-
-            print(f"{array} - {string}")
-
-        return number_safe_reports
+    return number_safe_reports
 
 
 def main():
-    solution = Solution()
-    data = solution.read_file_in()
-    print(solution.find_safe_reports(data))
+    data = read_file_in()
+    print(find_safe_reports(data))
 
 if __name__ == "__main__":
     main()

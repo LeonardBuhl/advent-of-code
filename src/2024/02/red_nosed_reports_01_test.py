@@ -1,5 +1,5 @@
-import pytest
-from red_nosed_reports_01 import Solution
+""" Tests for Red-Nosed Reports - Part 1 """
+import red_nosed_reports_01
 
 data = [
     [7, 6, 4, 2, 1],
@@ -10,9 +10,7 @@ data = [
     [1, 3, 6, 7, 9]
 ]
 
-@pytest.fixture
-def solution():
-    return Solution()
 
-def test_solution(solution: Solution):
-    assert solution.find_safe_reports(data) == 2
+def test_solution():
+    """ Test the safe report finding with the sample data """
+    assert red_nosed_reports_01.find_safe_reports(data) == 2

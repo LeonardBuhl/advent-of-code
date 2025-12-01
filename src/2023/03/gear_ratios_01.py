@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import List
 
-FILE_PATH = f"{Path(__file__).parent}/data.txt"
+FILE_PATH = Path(__file__).with_name("data.txt")
 SYMBOLS = "@%#-/$&*+="
 
 

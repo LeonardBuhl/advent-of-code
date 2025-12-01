@@ -1,5 +1,5 @@
 import pytest
-from cube_conundrum_02 import Solution
+from cube_conundrum_02 import find_possible_games, prepare_data
 
 dataset = [
     "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",
@@ -10,15 +10,16 @@ dataset = [
 ]
 
 
-@pytest.fixture
-def solution():
-    return Solution()
-
-
-def test_solution(solution: Solution):
-    assert solution.find_possible_games(solution.prepare_data([dataset[0]])) == 48
-    assert solution.find_possible_games(solution.prepare_data([dataset[1]])) == 12
-    assert solution.find_possible_games(solution.prepare_data([dataset[2]])) == 1560
-    assert solution.find_possible_games(solution.prepare_data([dataset[3]])) == 630
-    assert solution.find_possible_games(solution.prepare_data([dataset[4]])) == 36
-    assert solution.find_possible_games(solution.prepare_data(dataset)) == 2286
+@pytest.mark.parametrize(
+    ("games", "expected"),
+    [
+        ([dataset[0]], 48),
+        ([dataset[1]], 12),
+        ([dataset[2]], 1560),
+        ([dataset[3]], 630),
+        ([dataset[4]], 36),
+        (dataset, 2286),
+    ],
+)
+def test_find_possible_games(games, expected):
+    assert find_possible_games(prepare_data(games)) == expected

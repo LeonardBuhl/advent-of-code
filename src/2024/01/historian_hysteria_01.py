@@ -1,41 +1,42 @@
+""" AoC 2024 - Day 1 - Historian Hysteria - Part 1 Module """
 from pathlib import Path
-from typing import List, Union
+from typing import List, Tuple
 
-FILE_PATH = f"{Path(__file__).parent}/data.txt"
-
-class Solution:
-
-    def read_file_in(self) -> Union[List[int], List[int]]:
-        left_column = []
-        right_column = []
-
-        with open(FILE_PATH, 'r', encoding="UTF-8") as file:
-            for line in file:
-                columns = line.split('   ')
-                left_column.append(int(columns[0].strip()))
-                right_column.append(int(columns[1].strip()))
-
-        return left_column, right_column
+FILE_PATH = Path(__file__).with_name("data.txt")
 
 
-    def measure_distance(self, left_column: List[int], right_column: List[int]) -> int:
-        left_column.sort()
-        right_column.sort()
+def read_file_in() -> Tuple[List[int], List[int]]:
+    """ Load and split the puzzle input into two integer lists. """
+    left_column: List[int] = []
+    right_column: List[int] = []
 
-        total_distance = 0
+    with open(FILE_PATH, "r", encoding="UTF-8") as file:
+        for line in file:
+            columns = line.strip().split()
+            left_column.append(int(columns[0].strip()))
+            right_column.append(int(columns[1].strip()))
 
-        for id_left, item in enumerate(left_column):
-            distance = item - right_column[id_left]
-            if distance < 0:
-                distance = distance * -1
-            total_distance += distance
+    return left_column, right_column
 
-        return total_distance
 
-def main():
-    solution = Solution()
-    left_column, right_column = solution.read_file_in()
-    print(solution.total_distance(left_column, right_column))
+def measure_distance(left_column: List[int], right_column: List[int]) -> int:
+    """ Return the sum of absolute differences between the sorted columns. """
+    left_sorted = sorted(left_column)
+    right_sorted = sorted(right_column)
+
+    total_distance = 0
+    for idx, value in enumerate(left_sorted):
+        distance = abs(value - right_sorted[idx])
+        total_distance += distance
+
+    return total_distance
+
+
+def main() -> None:
+    """ Print the total distance between the two columns. """
+    left_column, right_column = read_file_in()
+    print(measure_distance(left_column, right_column))
+
 
 if __name__ == "__main__":
     main()
