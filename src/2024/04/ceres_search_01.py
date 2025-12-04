@@ -4,6 +4,7 @@ from typing import List
 
 FILE_PATH = Path(__file__).with_name("data.txt")
 
+
 def read_file_in() -> str:
     """ Read raw movement instructions from the local data file. """
     with open(FILE_PATH, "r", encoding="UTF-8") as file:
@@ -12,12 +13,14 @@ def read_file_in() -> str:
 
 
 def format_data(data: str) -> List[List[str]]:
+    """ Format the input data into a 2D list """
     lines = data.splitlines()
     formatted_data = [list(line) for line in lines]
     return formatted_data
 
 
-def get_solution(data: List[List[str]]) -> int: 
+def get_solution(data: List[List[str]]) -> int:
+    """ Get the solution for the challenge """
     result = 0
 
     max_x = len(data[0])
@@ -37,12 +40,11 @@ def get_solution(data: List[List[str]]) -> int:
         for y in range(max_y - 3):
             result += ''.join(column[y:y + 4]) in target
 
-    
-
     return result
 
 
 def main():
+    """ main """
     data = read_file_in()
     print(get_solution(format_data(data)))
 
