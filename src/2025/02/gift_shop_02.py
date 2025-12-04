@@ -15,7 +15,7 @@ def format_data(data: str) -> list[list[str]]:
     return formatted_data
 
 
-def populate_ranges(data: list[list[str]]) -> list[int]:
+def populate_ranges(data: list[list[str]]) -> list[str]:
 
     populated_data = []
 

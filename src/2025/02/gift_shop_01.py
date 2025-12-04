@@ -13,7 +13,7 @@ def format_data(data: str) -> list[list[str]]:
     formatted_data = [s.split('-') for s in data.split(',')]
     return formatted_data
 
-def populate_ranges(data: list[list[str]]) -> list[int]:
+def populate_ranges(data: list[list[str]]) -> list[str]:
 
     populated_data = []
 
@@ -49,7 +49,7 @@ def get_invalid_sum(data: list[str]) -> int:
             print(num)
             result += int(num)
 
-    return result  
+    return result
 
 
 def main():

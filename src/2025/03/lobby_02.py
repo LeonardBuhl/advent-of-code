@@ -1,0 +1,46 @@
+from pathlib import Path
+
+FILE_PATH = Path(__file__).with_name("data.txt")
+
+
+def read_file_in() -> str:
+    with open(FILE_PATH, "r", encoding="UTF-8") as file:
+        contents = file.read()
+    return contents
+
+
+def format_data(data: str) -> list[list[int]]:
+    lines = data.splitlines()
+    formatted_data = [[int(char) for char in line] for line in lines]
+    return formatted_data
+
+
+def get_joltage(data: list[list[int]]):
+    result = 0
+    target_length = 12
+
+    for nums in data:
+
+        to_drop = len(nums) - target_length
+        stack = []
+
+        for num in nums:
+            while to_drop > 0 and stack and stack[-1] < num:
+                stack.pop()
+                to_drop -= 1
+            stack.append(num)
+
+        best = stack[:target_length]
+        result += int("".join(map(str, best)))
+
+    return result
+
+
+def main():
+    data = read_file_in()
+    data = format_data(data)
+    print(get_joltage(data))
+
+
+if __name__ == "__main__":
+    main()
