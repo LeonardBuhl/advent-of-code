@@ -29,16 +29,32 @@ def get_solution(data: List[List[str]]) -> int:
     target = ['XMAS', 'SAMX']
 
     # horizontal
-
     for row in data:
         for x in range(max_x - 3):
             result += ''.join(row[x:x + 4]) in target
 
     # vertical
-
     for column in zip(*data):
         for y in range(max_y - 3):
             result += ''.join(column[y:y + 4]) in target
+
+    # diagonal
+    for row in range(max_y - 3):
+        for col in range(max_x - 3):
+            top_left_to_bottom_right = ''.join([
+                data[row][col],
+                data[row+1][col+1],
+                data[row+2][col+2],
+                data[row+3][col+3]
+            ])
+            bottom_left_to_top_right = ''.join([
+                data[row+3][col],
+                data[row+2][col+1],
+                data[row+1][col+2],
+                data[row][col+3]
+            ])
+            result += top_left_to_bottom_right in target
+            result += bottom_left_to_top_right in target
 
     return result
 
