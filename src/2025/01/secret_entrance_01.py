@@ -16,7 +16,7 @@ def prepare_data(raw_data: list[str]) -> list[int]:
         formatted.append(int(single_line_int))
     return formatted
 
-def get_password(data: list[int]) -> int:
+def get_solution(data: list[int]) -> int:
     """ Count how often the position returns to zero when applying rotations. """
     current_pos = 50
     point_at_zero = 0
@@ -32,9 +32,8 @@ def get_password(data: list[int]) -> int:
 
 def main():
     """ Entry point for running the password calculation. """
-    raw_data = read_file_in()
-    data = prepare_data(raw_data)
-    print(get_password(data))
+    data = read_file_in()
+    print(get_solution(prepare_data(data)))
 
 if __name__ == "__main__":
     main()

@@ -10,7 +10,7 @@ def read_file_in() -> str:
     return contents
 
 
-def get_result(data: str):
+def get_solution(data: str):
     result = 0
 
     mul_pattern = r'mul\(\d{1,3},\d{1,3}\)'
@@ -26,7 +26,7 @@ def get_result(data: str):
 
 def main():
     data = read_file_in()
-    print(get_result(data))
+    print(get_solution(data))
 
 
 if __name__ == "__main__":

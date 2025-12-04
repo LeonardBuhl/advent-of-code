@@ -1,3 +1,4 @@
+""" AoC 2025 - Day 4 - Printing Department - Part 1 Module """
 from pathlib import Path
 
 FILE_PATH = Path(__file__).with_name("data.txt")

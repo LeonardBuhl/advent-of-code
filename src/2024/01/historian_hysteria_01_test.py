@@ -1,10 +1,15 @@
 """ Tests for Historian Hysteria - Part 1 """
-from historian_hysteria_01 import measure_distance
+from historian_hysteria_01 import get_solution, format_data
 
-left_column = [3, 4, 2, 1, 3, 3]
-right_column = [4, 3, 5, 3, 9, 3]
+DATA = \
+"""3   4
+4   3
+2   5
+1   3
+3   9
+3   3"""
 
-
-def test_measure_distance():
+def test_solution():
     """ Test the distance measurement with the sample data """
-    assert measure_distance(left_column, right_column) == 11
+    left_column, right_column = format_data(DATA)
+    assert get_solution(left_column, right_column) == 11

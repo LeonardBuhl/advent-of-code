@@ -1,4 +1,5 @@
-from lobby_01 import get_joltage, format_data
+""" Test for Lobby - Part 1 """
+from lobby_01 import get_solution, format_data
 
 
 DATA = """987654321111111
@@ -8,4 +9,5 @@ DATA = """987654321111111
 """
 
 def test_solution():
-    assert get_joltage(format_data(DATA)) == 357
+    """ test the solution with the provided example """
+    assert get_solution(format_data(DATA)) == 357

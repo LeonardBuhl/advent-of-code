@@ -1,3 +1,4 @@
+""" AoC 2025 - Day 2 - Gift Shop - Part 1 Module """
 from pathlib import Path
 
 FILE_PATH = Path(__file__).with_name("data.txt")
@@ -32,7 +33,7 @@ def populate_ranges(data: list[list[str]]) -> list[str]:
 
     return populated_data
 
-def get_invalid_sum(data: list[str]) -> int:
+def get_solution(data: list[str]) -> int:
     result = 0
 
     for num in data:
@@ -54,9 +55,7 @@ def get_invalid_sum(data: list[str]) -> int:
 
 def main():
     data = read_file_in()
-    data = format_data(data)
-    data = populate_ranges(data)
-    print(get_invalid_sum(data))
+    print(get_solution(populate_ranges(format_data(data))))
 
 
 if __name__ == "__main__":

@@ -1,16 +1,15 @@
 """ Tests for Red-Nosed Reports - Part 1 """
-from red_nosed_reports_01 import find_safe_reports
+from red_nosed_reports_01 import get_solution, format_data
 
-DATA = [
-    [7, 6, 4, 2, 1],
-    [1, 2, 7, 8, 9],
-    [9, 7, 6, 2, 1],
-    [1, 3, 2, 4, 5],
-    [8, 6, 4, 4, 1],
-    [1, 3, 6, 7, 9]
-]
+DATA = """7 6 4 2 1
+1 2 7 8 9
+9 7 6 2 1
+1 3 2 4 5
+8 6 4 4 1
+1 3 6 7 9
+"""
 
 
 def test_solution():
     """ Test the safe report finding with the sample data """
-    assert find_safe_reports(DATA) == 2
+    assert get_solution(format_data(DATA)) == 2

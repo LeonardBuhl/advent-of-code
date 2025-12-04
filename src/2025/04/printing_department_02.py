@@ -1,3 +1,4 @@
+""" AoC 2025 - Day 4 - Printing Department - Part 2 Module """
 from pathlib import Path
 import copy
 

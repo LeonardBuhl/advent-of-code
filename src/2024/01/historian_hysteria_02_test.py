@@ -1,10 +1,16 @@
 """ Tests for Historian Hysteria - Part 2 """
-from historian_hysteria_02 import measure_similarity
+from historian_hysteria_02 import get_solution, format_data
 
-left_column = [3, 4, 2, 1, 3, 3]
-right_column = [4, 3, 5, 3, 9, 3]
+DATA = \
+"""3   4
+4   3
+2   5
+1   3
+3   9
+3   3"""
 
 
-def test_measure_similarity():
+def test_solution():
     """ Test the similarity measurement with sample data """
-    assert measure_similarity(left_column, right_column) == 31
+    left_column, right_column = format_data(DATA)
+    assert get_solution(left_column, right_column) == 31

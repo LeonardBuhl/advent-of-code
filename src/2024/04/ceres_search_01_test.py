@@ -1,4 +1,4 @@
-from ceres_search_01 import solve_word_search, format_data
+from ceres_search_01 import get_solution, format_data
 
 DATA = """
 MMMSXXMASM
@@ -14,4 +14,4 @@ MXMXAXMASX
 """
 
 def test_solution():
-    assert solve_word_search(format_data(DATA)) == 18
+    assert get_solution(format_data(DATA)) == 18

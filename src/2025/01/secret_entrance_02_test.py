@@ -1,5 +1,5 @@
 """ Tests for Secret Entrance - Part 2 """
-from secret_entrance_02 import get_password, prepare_data
+from secret_entrance_02 import get_solution, prepare_data
 
 DATA = [
     "L68",
@@ -14,7 +14,6 @@ DATA = [
     "L82",
 ]
 
-def test_get_password():
-    """ Test the password calculation with the sample data """
-    formatted = prepare_data(DATA)
-    assert get_password(formatted) == 6
+def test_solution():
+    """ test the solution with the provided example """
+    assert get_solution(prepare_data(DATA)) == 6

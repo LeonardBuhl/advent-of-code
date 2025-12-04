@@ -1,3 +1,4 @@
+""" AoC 2024 - Day 4 - Ceres Search - Part 1 Module """
 from pathlib import Path
 from typing import List
 
@@ -12,11 +13,11 @@ def read_file_in() -> str:
 
 def format_data(data: str) -> List[List[str]]:
     lines = data.splitlines()
-    formatted_data = [[char for char in line] for line in lines]
+    formatted_data = [list(line) for line in lines]
     return formatted_data
 
 
-def solve_word_search(data: List[List[str]]) -> int: 
+def get_solution(data: List[List[str]]) -> int: 
     result = 0
 
     max_x = len(data[0])
@@ -43,8 +44,7 @@ def solve_word_search(data: List[List[str]]) -> int:
 
 def main():
     data = read_file_in()
-    data = format_data(data)
-    print(solve_word_search(data))
+    print(get_solution(format_data(data)))
 
 
 if __name__ == "__main__":

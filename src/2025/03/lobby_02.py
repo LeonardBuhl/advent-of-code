@@ -1,3 +1,4 @@
+""" AoC 2025 - Day 3 - Lobby - Part 2 Module """
 from pathlib import Path
 
 FILE_PATH = Path(__file__).with_name("data.txt")
@@ -15,7 +16,7 @@ def format_data(data: str) -> list[list[int]]:
     return formatted_data
 
 
-def get_joltage(data: list[list[int]]):
+def get_solution(data: list[list[int]]):
     result = 0
     target_length = 12
 
@@ -38,8 +39,7 @@ def get_joltage(data: list[list[int]]):
 
 def main():
     data = read_file_in()
-    data = format_data(data)
-    print(get_joltage(data))
+    print(get_solution(format_data(data)))
 
 
 if __name__ == "__main__":

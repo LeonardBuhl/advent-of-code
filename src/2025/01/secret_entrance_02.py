@@ -25,7 +25,7 @@ def same_sign(x: int, y: int) -> bool:
     return x * y > 0
 
 
-def get_password(data: list[int]) -> int:
+def get_solution(data: list[int]) -> int:
     """Compute the password based on cumulative rotations."""
     current_pos = 50  # starting position
     point_at_zero = 0
@@ -57,9 +57,8 @@ def get_password(data: list[int]) -> int:
 
 def main() -> None:
     """Run the Secret Entrance solver."""
-    raw_data = read_file_in()
-    data = prepare_data(raw_data)
-    print(get_password(data))
+    data = read_file_in()
+    print(get_solution(prepare_data(data)))
 
 
 if __name__ == "__main__":
