@@ -15,18 +15,21 @@ DIRECTIONS = [
     ]
 
 def read_file_in() -> str:
+    """ Read the input file"""
     with open(FILE_PATH, "r", encoding="UTF-8") as file:
         contents = file.read()
     return contents
 
 
 def format_data(data: str) -> list[list[str]]:
+    """ Format the input data into a 2D list """
     lines = data.splitlines()
     formatted_data = [list(line) for line in lines]
     return formatted_data
 
 
 def get_solution(data) -> int:
+    """ Get the solution for the challenge """
     result = 0
     max_rolls = 3
 
@@ -60,6 +63,7 @@ def get_solution(data) -> int:
 
 
 def main():
+    """ main """
     data = read_file_in()
     print(get_solution(format_data(data)))
 

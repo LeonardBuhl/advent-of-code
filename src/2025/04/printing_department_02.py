@@ -24,12 +24,14 @@ def read_file_in() -> str:
 
 
 def format_data(data: str) -> list[list[str]]:
+    """ format the raw data into a 2d list """
     lines = data.splitlines()
     formatted_data = [list(line) for line in lines]
     return formatted_data
 
 
 def get_solution(data, result=0) -> int:
+    """ Recursively find and remove all valid '@' elements """
     max_rolls = 3
     added_this_round = 0
     indices = []
@@ -67,6 +69,7 @@ def get_solution(data, result=0) -> int:
 
 
 def main():
+    """ main """
     data = read_file_in()
     print(get_solution(format_data(data)))
 

@@ -11,10 +11,12 @@ def read_file_in() -> str:
 
 
 def format_data(data: str) -> list[list[str]]:
+    """ Format the input data into a 2D list """
     formatted_data = [s.split('-') for s in data.split(',')]
     return formatted_data
 
 def populate_ranges(data: list[list[str]]) -> list[str]:
+    """ Populate the ranges from the formatted data """
 
     populated_data = []
 
@@ -34,6 +36,7 @@ def populate_ranges(data: list[list[str]]) -> list[str]:
     return populated_data
 
 def get_solution(data: list[str]) -> int:
+    """ Get the solution for the challenge """
     result = 0
 
     for num in data:
@@ -54,6 +57,7 @@ def get_solution(data: list[str]) -> int:
 
 
 def main():
+    """ main """
     data = read_file_in()
     print(get_solution(populate_ranges(format_data(data))))
 
